@@ -6,7 +6,7 @@ log(typeof log);
 
 // string
 log(typeof 'string', 'string');
-log(typeof 'string', 'string');
+log(typeof "string", "string");
 
 // boolean
 log(typeof false, false);
