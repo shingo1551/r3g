@@ -18,4 +18,4 @@
 
 - link
 
-    https://discord.com/channels/984477322587541504/984477322876944385
+    https://discord.com/channels/992647642318389348/992647642318389352
