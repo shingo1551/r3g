@@ -2,6 +2,8 @@
 
 ## インストールするもの
 
+- Git
+
 - Discode
 
     https://discord.com
