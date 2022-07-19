@@ -1,40 +1,36 @@
 // ex4.ts
-import { ServerRequest } from 'https://deno.land/std/http/server.ts';
-import { readAll } from 'https://deno.land/std/io/util.ts';
 import * as db from './ex5.ts';
 
-export async function api(req: ServerRequest) {
-  const method = req.method;
+export function api(req: Request, pathname: string) {
   try {
-    if (method === 'GET')
-      get(req);
-    else if (method === 'POST')
-      await post(req);
+    if (req.method === 'GET')
+      return get(pathname);
+    else if (req.method === 'POST')
+      return post(req, pathname);
     else
-      req.respond({ status: 404 });
-  } catch (_e) {
-    req.respond({ status: 400 });
+      return new Response('Not Found', { status: 404 });
+  } catch (e) {
+    return new Response(e, { status: 400 });
   }
 }
 
 const headers = new Headers([['content-type', 'application/json']]);
 
-function get(req: ServerRequest) {
-  const body = { status: 0, member: db.get(parseUrl(req.url)) };
-  req.respond({ body: JSON.stringify(body), headers: headers });
+function get(pathname: string) {
+  const body = { status: 0, member: db.get(parseUrl(pathname)) };
+  return new Response(JSON.stringify(body), { headers });
 }
 
-async function post(req: ServerRequest) {
-  const buff = await readAll(req.body);
-  const text = new TextDecoder("utf-8").decode(buff);
-  db.set(parseUrl(req.url), JSON.parse(text));
-  req.respond({ body: JSON.stringify({ status: 0 }), headers: headers });
-}
-
-function parseUrl(url: string) {
-  const params = url.split('/');
+function parseUrl(pathname: string) {
+  const params = pathname.split('/');
   if (params.length !== 3 || !params[2])
     throw 'Bad Request';
   else
     return params[2];
+}
+
+async function post(req: Request, pathname: string) {
+  const text = await req.text();
+  db.set(parseUrl(pathname), JSON.parse(text));
+  return new Response(JSON.stringify({ status: 0 }), { headers });
 }

@@ -3,9 +3,9 @@ const opt = {
     method: 'DEL'
 };
 
-fetch('http://localhost:8080/member/id-001', opt)
-    .then((res) => {
-        return res.json();
-    }).then((obj) => {
-        console.log(obj);
-    });
+try {
+    const res = await fetch('http://localhost:8080/member/id-001', opt);
+    console.log(await res.json());
+} catch (e) {
+    console.log(e);
+}

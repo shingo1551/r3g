@@ -1,13 +1,13 @@
 // ex3.ts
-import { serve } from 'https://deno.land/std/http/server.ts';
+import { serve } from 'https://deno.land/std@0.148.0/http/server.ts';
 import { api as member } from './ex4.ts';
 
-const s = serve({ port: 8080 });
-for await (const req of s) {
-  const url = req.url;
-
-  if (url.startsWith('/member'))
-    member(req);
+const handler = (req: Request) => {
+  const pathname = new URL(req.url).pathname;
+  if (pathname.startsWith('/member'))
+    return member(req, pathname);
   else
-    req.respond({ status: 404 });
+    return new Response('Not Found', { status: 404 });
 }
+
+serve(handler, { port: 8080 });

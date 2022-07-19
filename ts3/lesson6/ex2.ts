@@ -14,9 +14,9 @@ const opt = {
     body: JSON.stringify(member)
 };
 
-fetch('http://localhost:8080/member/id-003', opt)
-    .then((res) => {
-        return res.json();
-    }).then((obj) => {
-        console.log(obj);
-    });
+try {
+    const res = await fetch('http://localhost:8080/member/id-003', opt);
+    console.log(await res.json());
+} catch (e) {
+    console.log(e);
+}

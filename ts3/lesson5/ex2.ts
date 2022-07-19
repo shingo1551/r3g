@@ -1,5 +1,5 @@
 // ex2.ts
-import { serve } from 'https://deno.land/std/http/server.ts';
+import { serve } from 'https://deno.land/std@0.148.0/http/server.ts';
 
 const headers = new Headers([['content-type', 'text/html; charset=UTF-8']]);
 
@@ -11,10 +11,12 @@ const body = `
 </html>
 `;
 
-const s = serve({ port: 8080 });
-for await (const req of s) {
-  if (req.method === 'GET' && req.url === '/')
-    req.respond({ body: body, headers: headers });
+const handler = (req: Request) => {
+  const url = new URL(req.url);
+  if (req.method === 'GET' && url.pathname === '/')
+    return new Response(body, { headers: headers });
   else
-    req.respond({ status: 404 });
+    return new Response('Not Found', { status: 404 });
 }
+
+serve(handler, { port: 8080 });
