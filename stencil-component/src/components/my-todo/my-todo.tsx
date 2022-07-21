@@ -32,8 +32,8 @@ export class MyTodo {
       <Host>
         <h2>Todo</h2>
         <span>
-          {state.count} of {state.list.length} remaining
-          <button onClick={this.onPurge} disabled={state.count == state.list.length}>
+          1 of 2 remaining
+          <button>
             purge
           </button>
         </span>
@@ -54,14 +54,10 @@ export class MyTodo {
             type='text'
             size={30}
             placeholder='add new todo here'
-            ref={(el) => (this.input = el)}
-            onInput={this.onInput}
           />
           <input
             type='submit'
             value='add'
-            onClick={this.onAdd}
-            disabled={this.disabled}
           />
         </form>
       </Host>
