@@ -6,6 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface AnsTodo {
+    }
     interface MyCheckTodo {
         "done": boolean;
         "n": number;
@@ -30,6 +32,12 @@ export interface MyCheckTodoCustomEvent<T> extends CustomEvent<T> {
     target: HTMLMyCheckTodoElement;
 }
 declare global {
+    interface HTMLAnsTodoElement extends Components.AnsTodo, HTMLStencilElement {
+    }
+    var HTMLAnsTodoElement: {
+        prototype: HTMLAnsTodoElement;
+        new (): HTMLAnsTodoElement;
+    };
     interface HTMLMyCheckTodoElement extends Components.MyCheckTodo, HTMLStencilElement {
     }
     var HTMLMyCheckTodoElement: {
@@ -67,6 +75,7 @@ declare global {
         new (): HTMLMyTodoElement;
     };
     interface HTMLElementTagNameMap {
+        "ans-todo": HTMLAnsTodoElement;
         "my-check-todo": HTMLMyCheckTodoElement;
         "my-hello": HTMLMyHelloElement;
         "my-lifecycle": HTMLMyLifecycleElement;
@@ -76,6 +85,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface AnsTodo {
+    }
     interface MyCheckTodo {
         "done": boolean;
         "n": number;
@@ -96,6 +107,7 @@ declare namespace LocalJSX {
     interface MyTodo {
     }
     interface IntrinsicElements {
+        "ans-todo": AnsTodo;
         "my-check-todo": MyCheckTodo;
         "my-hello": MyHello;
         "my-lifecycle": MyLifecycle;
@@ -108,6 +120,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "ans-todo": LocalJSX.AnsTodo & JSXBase.HTMLAttributes<HTMLAnsTodoElement>;
             "my-check-todo": LocalJSX.MyCheckTodo & JSXBase.HTMLAttributes<HTMLMyCheckTodoElement>;
             "my-hello": LocalJSX.MyHello & JSXBase.HTMLAttributes<HTMLMyHelloElement>;
             "my-lifecycle": LocalJSX.MyLifecycle & JSXBase.HTMLAttributes<HTMLMyLifecycleElement>;

@@ -1,8 +1,6 @@
 dist/
 hydrate/
 loader/
-components/
-!src/components/
 
 www/
 !www/favicon.ico
