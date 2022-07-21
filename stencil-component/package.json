@@ -1,0 +1,24 @@
+{
+  "name": "my-comp",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Stencil Component Starter",
+  "scripts": {
+    "build": "npm run clean; stencil build --docs",
+    "clean": "rm -rf components dist hydrate loader www",
+    "start": "stencil build --dev --watch --serve",
+    "generate": "stencil generate"
+  },
+  "devDependencies": {
+    "@stencil/core": "^2.17.0",
+    "@stencil/postcss": "^2.1.0",
+    "@stencil/store": "^2.0.0",
+    "autoprefixer": "^10.4.0",
+    "tailwindcss": "^3.1.5"
+  },
+  "license": "MIT",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "collection": "dist/collection/collection-manifest.json",
+  "types": "dist/types/components.d.ts"
+}
