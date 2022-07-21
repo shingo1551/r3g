@@ -1,11 +1,3 @@
 // ex1.ts
-export function resolveAfter(sec: number, b: boolean) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (b)
-                resolve('resolved');
-            else
-                reject('rejected');
-        }, sec * 1000);
-    });
-}
+import { serve } from 'https://deno.land/std@0.148.0/http/server.ts';
+serve(() => new Response('Hello World!'), { port: 8080 });

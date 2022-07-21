@@ -1,22 +1,22 @@
 // ex2.ts
-import { serve } from 'https://deno.land/std@0.148.0/http/server.ts';
+import { Member } from './ex5.ts';
 
-const headers = new Headers([['content-type', 'text/html; charset=UTF-8']]);
-
-const body = `
-<html>
-  <body>
-    <h1>Hello World!</h1>
-  </body>
-</html>
-`;
-
-const handler = (req: Request) => {
-  const url = new URL(req.url);
-  if (req.method === 'GET' && url.pathname === '/')
-    return new Response(body, { headers: headers });
-  else
-    return new Response('Not Found', { status: 404 });
+const member: Member = {
+    name: 'yamada',
+    age: 45
 }
 
-serve(handler, { port: 8080 });
+const headers = new Headers([['content-type', 'application/json']]);
+
+const opt = {
+    method: 'POST',
+    headers: headers,
+    body: JSON.stringify(member)
+};
+
+try {
+    const res = await fetch('http://localhost:8080/member/id-003', opt);
+    console.log(await res.json());
+} catch (e) {
+    console.log(e);
+}

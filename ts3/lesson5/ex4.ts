@@ -5,6 +5,8 @@ export function api(req: Request, pathname: string) {
   try {
     if (req.method === 'GET')
       return get(pathname);
+    else if (req.method === 'POST')
+      return post(req, pathname);
     else
       return new Response('Not Found', { status: 404 });
   } catch (e) {
@@ -25,4 +27,10 @@ function parseUrl(pathname: string) {
     throw 'Bad Request';
   else
     return params[2];
+}
+
+async function post(req: Request, pathname: string) {
+  const text = await req.text();
+  db.set(parseUrl(pathname), JSON.parse(text));
+  return new Response(JSON.stringify({ status: 0 }), { headers });
 }

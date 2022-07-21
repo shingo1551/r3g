@@ -4,19 +4,15 @@ export interface Member {
     age: number;
 }
 
-export interface Request {
+export interface Scenario {
+    message: string;
     method: 'GET' | 'POST' | 'DEL';
     id: string;
     member?: Member;
+    expected: Expected;
 }
 
-export interface Response {
+export interface Expected {
     status: number;
     member?: Member;
-}
-
-export interface Result {
-    req: Request;
-    res?: Response;
-    err?: string;
 }
