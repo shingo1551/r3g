@@ -2,7 +2,7 @@
 
 ## 第4回
 
-    7/23(土) 14:00-
+    8/6(土) 14:00-
 
 ## インストールするもの
 
@@ -10,18 +10,22 @@
 
 - Discode
 
-    https://discord.com
+  https://discord.com
 
 - deno
-    
-    https://deno.land
+
+  https://deno.land
+
+- node.js
+
+  https://nodejs.org
 
 - VSCode & Extension(Deno)
 
-    https://azure.microsoft.com/ja-jp/products/visual-studio-code/
+  https://azure.microsoft.com/ja-jp/products/visual-studio-code/
 
 ## Discode
 
 - link
 
-    https://discord.com/channels/992647642318389348/992648981723222047
+  https://discord.com/channels/992647642318389348/992648981723222047
