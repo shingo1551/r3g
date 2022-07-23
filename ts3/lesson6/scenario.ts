@@ -1,7 +1,7 @@
 // scenario.ts
 import { Scenario } from './interface.ts';
 
-export const scenarios = [
+export const scenarios: Scenario[] = [
   {
     message: 'get member',
     method: 'GET',
@@ -46,4 +46,4 @@ export const scenarios = [
       status: 200
     }
   }
-] as Scenario[];
+];

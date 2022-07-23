@@ -30,7 +30,6 @@ function parseUrl(pathname: string) {
 }
 
 async function post(req: Request, pathname: string) {
-  const text = await req.text();
-  db.set(parseUrl(pathname), JSON.parse(text));
+  db.set(parseUrl(pathname), await req.json());
   return new Response(JSON.stringify({ status: 0 }), { headers });
 }
