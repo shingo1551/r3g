@@ -54,6 +54,7 @@ export class MyTodo {
             type='text'
             size={30}
             placeholder='add new todo here'
+            ref={(el) => (this.input = el)}
           />
           <input
             type='submit'
