@@ -17,6 +17,7 @@ const { state } = createStore({
 
 export function push(todo: ToDo) {
   state.list.push(todo);
+  state.list = [...state.list];
   count();
 }
 
