@@ -14,8 +14,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  my-todo --> my-check-todo
-  style my-todo fill:#f9f,stroke:#333,stroke-width:4px
+  ans-todo --> my-check-todo
+  style ans-todo fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
