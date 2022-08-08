@@ -35,5 +35,5 @@ export const config: Config = {
     initializeNextTick: true,
     scriptDataOpts: true,
   },
-  sourceMap: false,
+  sourceMap: true,
 };
