@@ -56,10 +56,7 @@ export class MyTodo {
             placeholder='add new todo here'
             ref={(el) => (this.input = el)}
           />
-          <input
-            type='submit'
-            value='add'
-          />
+          <button>add</button>
         </form>
       </Host>
     )

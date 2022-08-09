@@ -57,12 +57,7 @@ export class AnsTodo {
             ref={(el) => (this.input = el)}
             onInput={this.onInput}
           />
-          <input
-            type='submit'
-            value='add'
-            onClick={this.onAdd}
-            disabled={this.disabled}
-          />
+          <button onClick={this.onAdd} disabled={this.disabled} >add</button>
         </form>
       </Host>
     )
