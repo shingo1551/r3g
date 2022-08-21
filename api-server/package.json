@@ -1,0 +1,36 @@
+{
+  "name": "api-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "init": "ts-node init.ts",
+    "init:swc": "ts-node --swc init.ts",
+    "server": "ts-node server.ts",
+    "server:swc": "ts-node --swc server.ts",
+    "migrate": "npx prisma migrate dev --name init",
+    "clean": "rm -rf prisma/dev.db prisma/migrations; npm run migrate",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@swc/core": "^1.2.186",
+    "@swc/helpers": "^0.4.0",
+    "@types/node": "^18.7.0",
+    "prisma": "^4.2.0",
+    "regenerator-runtime": "^0.13.9",
+    "ts-node": "^10.9.0",
+    "typescript": "^4.7.0"
+  },
+  "dependencies": {
+    "@fastify/cors": "^8.1.0",
+    "@prisma/client": "^4.2.0",
+    "@types/bcrypt": "^5.0.0",
+    "bcrypt": "^5.0.1",
+    "fast-jwt": "^1.7.0",
+    "fastify": "^4.5.0",
+    "fastify-cors": "^6.1.0"
+  }
+}

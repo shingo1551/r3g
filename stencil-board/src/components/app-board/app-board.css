@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+
+div.bottom {
+  position: sticky;
+  bottom: 0rem;
+  padding: 1rem 0;
+  background-color: white;
+}
+
+textarea {
+  width: 16rem;
+}
