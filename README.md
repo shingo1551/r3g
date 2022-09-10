@@ -1,10 +1,14 @@
 # TypeScript 勉強会
 
-## 第 8 回
+## 第 9 回
 
-9/10(土) 14:00-
+9/18(日) 13:00-
 
-- GFC or Yasui を、TypeScript で作ってみよう
+### GFC or Yasui を、TypeScript で作ってみよう
+
+1. routes
+2. islands
+3. components
 
 ## インストールするもの
 
