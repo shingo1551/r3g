@@ -33,8 +33,8 @@
 
 ## Server Side Rendering (SSR)
 
-- [Next.js](https://nextjs.org)
-- [NuxtJS](https://nuxtjs.org)
+- [Next.js](https://nextjs.org)(React)
+- [NuxtJS](https://nuxtjs.org)(Vue)
 
 ## Next Generation SSR
 
